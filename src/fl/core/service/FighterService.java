@@ -8,4 +8,6 @@ import fl.core.domain.Fighter;
 public interface FighterService {
 
     List<Fighter> listAllFighters() throws SQLException;
+    
+    Fighter addFighter(Fighter fighter) throws SQLException;
 }
