@@ -1,0 +1,18 @@
+<?xml version="1.0"?>  
+<!DOCTYPE hibernate-mapping PUBLIC   
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="fl.core.domain">
+	<class name="Fighter">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="nickName" />
+		<property name="hp" type="integer" />
+		<property name="maxHp" type="integer" />
+		<property name="attack" type="integer" />
+		<property name="defence" type="integer" />
+		<property name="image" />
+	</class>
+</hibernate-mapping>
