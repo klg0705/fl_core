@@ -18,6 +18,8 @@ public class Fighter {
 
     private String image;
 
+    private Deity deity;
+
     public int getId() {
         return id;
     }
@@ -80,6 +82,14 @@ public class Fighter {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Deity getDeity() {
+        return deity;
+    }
+
+    public void setDeity(Deity deity) {
+        this.deity = deity;
     }
 
 }

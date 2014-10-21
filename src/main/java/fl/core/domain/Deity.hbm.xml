@@ -3,17 +3,15 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="fl.core.domain">
-    <class name="Fighter">
+    <class name="Deity">
         <id name="id">
             <generator class="native" />
         </id>
         <property name="name" />
-        <property name="nickName" />
-        <property name="hp" type="integer" />
-        <property name="maxHp" type="integer" />
-        <property name="attack" type="integer" />
-        <property name="defence" type="integer" />
         <property name="image" />
-        <many-to-one name="deity" column="deityId" not-null="true" />
+        <bag name="fighters" inverse="true">
+            <key column="deityId" />
+            <one-to-many class="Fighter" />
+        </bag>
     </class>
 </hibernate-mapping>

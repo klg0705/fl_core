@@ -1,15 +1,32 @@
 package fl.core.dao.impl;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import fl.core.dao.DeityDAO;
 import fl.core.dao.FighterDAO;
+import fl.core.domain.Deity;
 import fl.core.domain.Fighter;
 
 public class TestFighterDAOImpl {
+
+    private Deity deity = new Deity();
+
+    @Before
+    public void setUp() throws Exception {
+        DeityDAO deityDAO = new DeityDAOImpl();
+        deity.setName("GOD");
+        deityDAO.save(deity);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
 
     @Test
     public void testCRUD() {
@@ -26,6 +43,7 @@ public class TestFighterDAOImpl {
         fighter.setName("Gordon Kong");
         fighter.setNickName("Tank");
         fighter.setImage("images/bear.png");
+        fighter.setDeity(deity);
 
         fighterDAO.save(fighter);
 
@@ -33,6 +51,7 @@ public class TestFighterDAOImpl {
 
         Fighter fighter2 = new Fighter();
         fighter2.setName("John Green");
+        fighter2.setDeity(deity);
         fighterDAO.save(fighter2);
 
         assertEquals(2, fighterDAO.count());
