@@ -20,4 +20,6 @@ public interface BaseService<T> {
     public void deleteAll();
 
     public long count();
+    
+    public BaseDAO<T> getBaseDAO();
 }

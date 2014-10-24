@@ -1,4 +1,4 @@
-package fl.core.dao.impl;
+package fl.core.service.impl;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,27 +13,27 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fl.core.dao.DeityDAO;
-import fl.core.dao.FighterDAO;
 import fl.core.domain.Deity;
 import fl.core.domain.Fighter;
+import fl.core.service.DeityService;
+import fl.core.service.FighterService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-test.xml" })
-public class TestFighterDAOImpl {
+public class TestFighterServiceImpl {
 
-    @Resource(name = "deityDAOImpl")
-    private DeityDAO deityDAO;
+    @Resource(name = "deityServiceImpl")
+    private DeityService deityService;
 
-    @Resource(name = "fighterDAOImpl")
-    private FighterDAO fighterDAO;
+    @Resource(name = "fighterServiceImpl")
+    private FighterService fighterService;
 
     private Deity deity = new Deity();
 
     @Before
     public void setUp() throws Exception {
         deity.setName("GOD");
-        deityDAO.save(deity);
+        deityService.add(deity);
     }
 
     @After
@@ -42,8 +42,9 @@ public class TestFighterDAOImpl {
 
     @Test
     public void testCRUD() {
-        fighterDAO.deleteAll();
-        assertEquals(0, fighterDAO.count());
+
+        fighterService.deleteAll();
+        assertEquals(0, fighterService.count());
 
         Fighter fighter = new Fighter();
         fighter.setHp(100);
@@ -55,34 +56,34 @@ public class TestFighterDAOImpl {
         fighter.setImage("images/bear.png");
         fighter.setDeity(deity);
 
-        fighterDAO.save(fighter);
+        fighterService.add(fighter);
 
-        assertEquals(1, fighterDAO.count());
+        assertEquals(1, fighterService.count());
 
         Fighter fighter2 = new Fighter();
         fighter2.setName("John Green");
         fighter2.setDeity(deity);
-        fighterDAO.save(fighter2);
+        fighterService.add(fighter2);
 
-        assertEquals(2, fighterDAO.count());
+        assertEquals(2, fighterService.count());
 
-        Fighter f = fighterDAO.get(fighter.getId());
+        Fighter f = fighterService.get(fighter.getId());
         assertEquals("Gordon Kong", f.getName());
         assertEquals("Tank", f.getNickName());
 
-        List<Fighter> list = fighterDAO.getAll();
+        List<Fighter> list = fighterService.getAll();
         assertEquals(2, list.size());
 
         f.setNickName("Healer");
-        fighterDAO.update(f);
+        fighterService.update(f);
         assertEquals("Gordon Kong", f.getName());
         assertEquals("Healer", f.getNickName());
 
-        fighterDAO.delete(f);
-        assertEquals(1, fighterDAO.count());
+        fighterService.delete(f);
+        assertEquals(1, fighterService.count());
 
-        fighterDAO.deleteById(fighter2.getId());
-        assertEquals(0, fighterDAO.count());
+        fighterService.deleteById(fighter2.getId());
+        assertEquals(0, fighterService.count());
 
     }
 

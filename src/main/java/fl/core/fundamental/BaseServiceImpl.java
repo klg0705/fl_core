@@ -5,54 +5,44 @@ import java.util.List;
 
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
-    private BaseDAO<T> baseDAO;
-
-    public BaseDAO<T> getBaseDAO() {
-        return baseDAO;
-    }
-
-    public void setBaseDAO(BaseDAO<T> baseDAO) {
-        this.baseDAO = baseDAO;
-    }
-
     @Override
     public T get(Serializable id) {
-        return baseDAO.get(id);
+        return getBaseDAO().get(id);
     }
 
     @Override
     public void update(T t) {
-        baseDAO.update(t);
+        getBaseDAO().update(t);
     }
 
     @Override
     public void add(T t) {
-        baseDAO.save(t);
+        getBaseDAO().save(t);
     }
 
     @Override
     public void delete(T t) {
-        baseDAO.delete(t);
+        getBaseDAO().delete(t);
     }
 
     @Override
     public List<T> getAll() {
-        return baseDAO.getAll();
+        return getBaseDAO().getAll();
     }
 
     @Override
     public void deleteById(Serializable id) {
-        baseDAO.deleteById(id);
+        getBaseDAO().deleteById(id);
     }
 
     @Override
     public void deleteAll() {
-        baseDAO.deleteAll();
+        getBaseDAO().deleteAll();
     }
 
     @Override
     public long count() {
-        return baseDAO.count();
+        return getBaseDAO().count();
     }
 
 }
