@@ -1,11 +1,11 @@
 package fl.core.service.impl;
 
-import fl.core.algorithm.generator.PropGenerator;
 import fl.core.dao.FighterDAO;
 import fl.core.domain.Fighter;
 import fl.core.fundamental.BaseDAO;
 import fl.core.fundamental.BaseServiceImpl;
 import fl.core.service.FighterService;
+import fl.core.util.PropGenerator;
 
 public class FighterServiceImpl extends BaseServiceImpl<Fighter> implements FighterService {
 

@@ -1,4 +1,4 @@
-package fl.core.algorithm.generator;
+package fl.core.util;
 
 import fl.core.domain.Fighter;
 import fl.core.util.RandomUtil;

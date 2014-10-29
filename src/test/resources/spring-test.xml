@@ -12,5 +12,10 @@
     <bean id="fighterServiceImpl" class="fl.core.service.impl.FighterServiceImpl">
         <property name="fighterDAO" ref="fighterDAOImpl" />
     </bean>
+    <bean id="fightService" class="fl.core.service.impl.FightServiceImpl">
+        <property name="fighterService" ref="fighterServiceImpl" />
+        <property name="game" ref="game" />
+    </bean>
 
+    <bean id="game" class="fl.core.fight.Game"></bean>
 </beans>
