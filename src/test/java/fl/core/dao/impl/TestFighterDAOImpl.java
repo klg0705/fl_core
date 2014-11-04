@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import fl.core.dao.DeityDAO;
 import fl.core.dao.FighterDAO;
@@ -20,6 +21,7 @@ import fl.core.domain.Fighter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-test.xml" })
+@Transactional
 public class TestFighterDAOImpl {
 
     @Resource(name = "deityDAOImpl")

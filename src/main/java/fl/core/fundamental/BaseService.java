@@ -3,6 +3,9 @@ package fl.core.fundamental;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 public interface BaseService<T> {
 
     public T get(Serializable id);

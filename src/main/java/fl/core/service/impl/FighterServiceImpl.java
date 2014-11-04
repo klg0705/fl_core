@@ -11,13 +11,6 @@ public class FighterServiceImpl extends BaseServiceImpl<Fighter> implements Figh
 
     private FighterDAO fighterDAO;
 
-    public FighterServiceImpl() {
-    }
-
-    public FighterServiceImpl(FighterDAO fighterDAO) {
-        this.fighterDAO = fighterDAO;
-    }
-
     public FighterDAO getFighterDAO() {
         return fighterDAO;
     }

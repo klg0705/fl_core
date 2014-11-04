@@ -12,13 +12,6 @@ public class DeityServiceImpl extends BaseServiceImpl<Deity> implements DeitySer
 
     private DeityDAO deityDAO;
 
-    public DeityServiceImpl() {
-    }
-    
-    public DeityServiceImpl(DeityDAO deityDAO) {
-        this.deityDAO = deityDAO;
-    }
-    
     public DeityDAO getDeityDAO() {
         return deityDAO;
     }
