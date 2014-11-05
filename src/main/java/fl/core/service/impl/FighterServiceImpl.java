@@ -1,9 +1,9 @@
 package fl.core.service.impl;
 
+import fl.base.dao.BaseDAO;
+import fl.base.service.impl.BaseServiceImpl;
 import fl.core.dao.FighterDAO;
 import fl.core.domain.Fighter;
-import fl.core.fundamental.BaseDAO;
-import fl.core.fundamental.BaseServiceImpl;
 import fl.core.service.FighterService;
 import fl.core.util.PropGenerator;
 
@@ -20,9 +20,9 @@ public class FighterServiceImpl extends BaseServiceImpl<Fighter> implements Figh
     }
 
     @Override
-    public void add(Fighter fighter) {
+    public void create(Fighter fighter) {
         PropGenerator.generateFighterProp(fighter);
-        super.add(fighter);
+        super.create(fighter);
     }
 
     @Override

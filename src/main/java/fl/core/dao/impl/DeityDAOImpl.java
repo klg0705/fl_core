@@ -2,9 +2,9 @@ package fl.core.dao.impl;
 
 import java.io.Serializable;
 
+import fl.base.dao.impl.BaseDAOImpl;
 import fl.core.dao.DeityDAO;
 import fl.core.domain.Deity;
-import fl.core.fundamental.BaseDAOImpl;
 
 public class DeityDAOImpl extends BaseDAOImpl<Deity> implements DeityDAO {
 

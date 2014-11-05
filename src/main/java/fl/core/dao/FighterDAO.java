@@ -1,7 +1,7 @@
 package fl.core.dao;
 
+import fl.base.dao.BaseDAO;
 import fl.core.domain.Fighter;
-import fl.core.fundamental.BaseDAO;
 
 public interface FighterDAO extends BaseDAO<Fighter> {
 

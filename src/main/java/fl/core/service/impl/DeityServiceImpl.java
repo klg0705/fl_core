@@ -2,10 +2,10 @@ package fl.core.service.impl;
 
 import java.io.Serializable;
 
+import fl.base.dao.BaseDAO;
+import fl.base.service.impl.BaseServiceImpl;
 import fl.core.dao.DeityDAO;
 import fl.core.domain.Deity;
-import fl.core.fundamental.BaseDAO;
-import fl.core.fundamental.BaseServiceImpl;
 import fl.core.service.DeityService;
 
 public class DeityServiceImpl extends BaseServiceImpl<Deity> implements DeityService {

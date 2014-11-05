@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import fl.base.service.BaseService;
 import fl.core.domain.Deity;
-import fl.core.fundamental.BaseService;
 
 @Transactional
 public interface DeityService extends BaseService<Deity> {

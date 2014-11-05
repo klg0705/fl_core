@@ -35,7 +35,7 @@ public class TestFighterDAOImpl {
     @Before
     public void setUp() throws Exception {
         deity.setName("GOD");
-        deityDAO.save(deity);
+        deityDAO.create(deity);
     }
 
     @After
@@ -57,14 +57,14 @@ public class TestFighterDAOImpl {
         fighter.setImage("images/bear.png");
         fighter.setDeity(deity);
 
-        fighterDAO.save(fighter);
+        fighterDAO.create(fighter);
 
         assertEquals(1, fighterDAO.count());
 
         Fighter fighter2 = new Fighter();
         fighter2.setName("John Green");
         fighter2.setDeity(deity);
-        fighterDAO.save(fighter2);
+        fighterDAO.create(fighter2);
 
         assertEquals(2, fighterDAO.count());
 

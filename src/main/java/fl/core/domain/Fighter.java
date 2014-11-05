@@ -1,8 +1,14 @@
 package fl.core.domain;
 
-public class Fighter {
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-    private int id;
+import fl.base.domain.BaseDomain;
+
+@Entity
+@Table
+public class Fighter extends BaseDomain {
 
     private String name;
 
@@ -18,15 +24,8 @@ public class Fighter {
 
     private String image;
 
+    @ManyToOne(optional = false)
     private Deity deity;
-
-    public int getId() {
-        return id;
-    }
-
-    void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

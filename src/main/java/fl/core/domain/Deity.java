@@ -2,23 +2,22 @@ package fl.core.domain;
 
 import java.util.List;
 
-public class Deity {
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-    private int id;
+import fl.base.domain.BaseDomain;
+
+@Entity
+@Table
+public class Deity extends BaseDomain {
 
     private String name;
 
     private String image;
 
+    @OneToMany(mappedBy="deity")
     private List<Fighter> fighters;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

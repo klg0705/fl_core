@@ -1,8 +1,8 @@
 package fl.core.dao.impl;
 
+import fl.base.dao.impl.BaseDAOImpl;
 import fl.core.dao.FighterDAO;
 import fl.core.domain.Fighter;
-import fl.core.fundamental.BaseDAOImpl;
 
 public class FighterDAOImpl extends BaseDAOImpl<Fighter> implements FighterDAO {
 

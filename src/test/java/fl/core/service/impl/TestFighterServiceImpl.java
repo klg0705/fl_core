@@ -33,7 +33,7 @@ public class TestFighterServiceImpl {
     @Before
     public void setUp() throws Exception {
         deity.setName("GOD");
-        deityService.add(deity);
+        deityService.create(deity);
     }
 
     @After
@@ -56,14 +56,14 @@ public class TestFighterServiceImpl {
         fighter.setImage("images/bear.png");
         fighter.setDeity(deity);
 
-        fighterService.add(fighter);
+        fighterService.create(fighter);
 
         assertEquals(1, fighterService.count());
 
         Fighter fighter2 = new Fighter();
         fighter2.setName("John Green");
         fighter2.setDeity(deity);
-        fighterService.add(fighter2);
+        fighterService.create(fighter2);
 
         assertEquals(2, fighterService.count());
 
