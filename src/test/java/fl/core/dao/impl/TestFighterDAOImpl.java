@@ -18,6 +18,8 @@ import fl.core.dao.DeityDAO;
 import fl.core.dao.FighterDAO;
 import fl.core.domain.Deity;
 import fl.core.domain.Fighter;
+import fl.user.dao.PersonDAO;
+import fl.user.domain.Person;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-test.xml" })
@@ -30,11 +32,21 @@ public class TestFighterDAOImpl {
     @Resource(name = "fighterDAOImpl")
     private FighterDAO fighterDAO;
 
+    @Resource(name = "personDAOImpl")
+    private PersonDAO personDAO;
+
     private Deity deity = new Deity();
+
+    private Person person = new Person();
 
     @Before
     public void setUp() throws Exception {
+        person.setAccount("klg");
+        person.setName("Gordon");
+        personDAO.create(person);
+
         deity.setName("GOD");
+        deity.setPerson(person);
         deityDAO.create(deity);
     }
 

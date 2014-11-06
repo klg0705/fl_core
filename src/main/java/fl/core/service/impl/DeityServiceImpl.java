@@ -20,14 +20,16 @@ public class DeityServiceImpl extends BaseServiceImpl<Deity> implements DeitySer
         this.deityDAO = deityDAO;
     }
 
-    @Override
+    public BaseDAO<Deity> getBaseDAO() {
+        return deityDAO;
+    }
+
     public Deity getWithFighters(Serializable id) {
         return deityDAO.getWithFighters(id);
     }
 
-    @Override
-    public BaseDAO<Deity> getBaseDAO() {
-        return deityDAO;
+    public Deity findByPersonId(Serializable personId) {
+        return deityDAO.findByPersonId(personId);
     }
 
 }

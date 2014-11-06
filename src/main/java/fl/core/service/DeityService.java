@@ -12,4 +12,6 @@ public interface DeityService extends BaseService<Deity> {
 
     Deity getWithFighters(Serializable id);
 
+    Deity findByPersonId(Serializable personId);
+
 }

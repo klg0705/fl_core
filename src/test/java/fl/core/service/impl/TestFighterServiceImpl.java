@@ -17,6 +17,8 @@ import fl.core.domain.Deity;
 import fl.core.domain.Fighter;
 import fl.core.service.DeityService;
 import fl.core.service.FighterService;
+import fl.user.domain.Person;
+import fl.user.service.PersonService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-test.xml" })
@@ -28,11 +30,21 @@ public class TestFighterServiceImpl {
     @Resource(name = "fighterServiceImpl")
     private FighterService fighterService;
 
+    @Resource(name = "personServiceImpl")
+    private PersonService personService;
+
     private Deity deity = new Deity();
+
+    private Person person = new Person();
 
     @Before
     public void setUp() throws Exception {
+        person.setAccount("klg");
+        person.setName("Gordon");
+        personService.create(person);
+
         deity.setName("GOD");
+        deity.setPerson(person);
         deityService.create(deity);
     }
 
